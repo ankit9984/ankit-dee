@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { collegeData } from "@/data/colleges";
+import { College } from "@/app/types";
 
 type CollegeFilterProps = {
-  onFilterChange: (filteredData: any[]) => void;
+  onFilterChange: (filteredData: College[]) => void;
 };
 
 export default function CollegeFilter({ onFilterChange }: CollegeFilterProps) {

@@ -7,11 +7,12 @@ import CollegesList from "@/app/components/CollegesList";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 import SchemaOrg from "@/app/components/SchemaOrg";
+import { College } from "@/app/types";
 
 export default function CollegesPage() {
-  const [filteredCollegeData, setFilteredCollegeData] = useState(collegeData);
+  const [filteredCollegeData, setFilteredCollegeData] = useState<College[]>(collegeData);
 
-  const handleFilterChange = useCallback((filteredData: any[]) => {
+  const handleFilterChange = useCallback((filteredData: College[]) => {
     setFilteredCollegeData(filteredData);
   }, []);
 

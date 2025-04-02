@@ -8,16 +8,17 @@ import CollegesList from "@/app/components/CollegesList"
 import CollegeFilter from "@/app/components/CollegeFilter"
 import Header from "@/components/Header"
 import SchemaOrg from "@/app/components/SchemaOrg"
+import { College } from "@/app/types"
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
-  const [filteredCollegeData, setFilteredCollegeData] = useState(collegeData)
+  const [filteredCollegeData, setFilteredCollegeData] = useState<College[]>(collegeData)
 
   const searchFilteredColleges = filteredCollegeData
     .filter((college) => college.collegeName.toLowerCase().includes(searchQuery.toLowerCase()))
     .slice(0, 5)
 
-  const handleFilterChange = useCallback((filteredData: any[]) => {
+  const handleFilterChange = useCallback((filteredData: College[]) => {
     setFilteredCollegeData(filteredData);
   }, []);
 
