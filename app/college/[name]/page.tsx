@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import SchemaOrg from "@/app/components/SchemaOrg";
-import { College } from "@/app/types";
 
 interface PageParams {
   name: string;
