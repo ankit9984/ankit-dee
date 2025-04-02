@@ -4,12 +4,17 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import SchemaOrg from "@/app/components/SchemaOrg";
+import { College } from "@/app/types";
 
-type Props = {
-  params: { name: string };
-};
+interface PageParams {
+  name: string;
+}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+interface PageProps {
+  params: PageParams;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const decodedName = decodeURIComponent(params.name);
   const college = collegeData.find((c) => c.collegeName === decodedName);
 
@@ -25,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function CollegePage({ params }: Props) {
+export default async function CollegePage({ params }: PageProps) {
   const decodedName = decodeURIComponent(params.name);
   const college = collegeData.find((c) => c.collegeName === decodedName);
 
