@@ -7,6 +7,7 @@ import { collegeData } from "@/data/colleges"
 import CollegesList from "@/app/components/CollegesList"
 import CollegeFilter from "@/app/components/CollegeFilter"
 import Header from "@/components/Header"
+import SchemaOrg from "@/app/components/SchemaOrg"
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -24,6 +25,10 @@ export default function Home() {
     <>
       <Header />
       <main className="min-h-screen p-4 md:p-8 max-w-6xl mx-auto">
+        <SchemaOrg
+          title="College Directory - Find Colleges and Courses"
+          description="Find colleges, compare courses, and discover intake capacities across various educational institutions"
+        />
         <div className="py-6 sm:py-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8">Find Your College</h1>
 

@@ -6,6 +6,7 @@ import CollegeFilter from "@/app/components/CollegeFilter";
 import CollegesList from "@/app/components/CollegesList";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
+import SchemaOrg from "@/app/components/SchemaOrg";
 
 export default function CollegesPage() {
   const [filteredCollegeData, setFilteredCollegeData] = useState(collegeData);
@@ -14,8 +15,16 @@ export default function CollegesPage() {
     setFilteredCollegeData(filteredData);
   }, []);
 
+  const title = "All Colleges - Find and Filter Colleges";
+  const description = "Browse, search and filter colleges by taluka, area, and courses. Find the right college for your educational needs.";
+
   return (
     <main className="min-h-screen p-4 md:p-8 max-w-6xl mx-auto">
+      <SchemaOrg
+        title={title}
+        description={description}
+      />
+
       <Link href="/" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-6">
         <FaArrowLeft className="mr-2 h-4 w-4" />
         Back to home

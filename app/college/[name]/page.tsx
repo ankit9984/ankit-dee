@@ -3,12 +3,13 @@ import { collegeData } from "@/data/colleges";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
+import SchemaOrg from "@/app/components/SchemaOrg";
 
 type Props = {
   params: { name: string };
 };
 
-export function generateMetadata({ params }: Props): Metadata {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const decodedName = decodeURIComponent(params.name);
   const college = collegeData.find((c) => c.collegeName === decodedName);
 
@@ -24,7 +25,7 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function CollegePage({ params }: Props) {
+export default async function CollegePage({ params }: Props) {
   const decodedName = decodeURIComponent(params.name);
   const college = collegeData.find((c) => c.collegeName === decodedName);
 
@@ -34,6 +35,19 @@ export default function CollegePage({ params }: Props) {
 
   return (
     <main className="min-h-screen p-4 md:p-8 max-w-6xl mx-auto">
+      <SchemaOrg 
+        title={`${college.collegeName} | Courses and Information`}
+        description={`View courses, intake capacities, and contact information for ${college.collegeName}`}
+        type="CollegeOrUniversity"
+        collegeName={college.collegeName}
+        address={{
+          street: college.address.street,
+          city: college.address.city,
+          pincode: college.address.pincode,
+          district: college.address.district,
+        }}
+      />
+      
       <Link href="/" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-6">
         <FaArrowLeft className="mr-2 h-4 w-4" />
         Back to all colleges

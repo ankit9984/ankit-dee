@@ -1,36 +1,36 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata } from "next";
+import ClientProviders from "@/components/ClientProviders";
 
 export const metadata: Metadata = {
-  title: "College Directory",
-  description: "Find and explore colleges, courses, and information",
+  title: "College Directory - Find Colleges and Courses",
+  description: "Find colleges, compare courses, and discover intake capacities across various educational institutions",
+  keywords: "colleges, education, courses, admission, intake capacity, college finder",
+  metadataBase: new URL('https://college-directory.vercel.app'),
+  authors: [{ name: "College Directory" }],
+  openGraph: {
+    title: "College Directory - Find Colleges and Courses",
+    description: "Find colleges, compare courses, and discover intake capacities across various educational institutions",
+    images: ['/og-image.jpg'],
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider defaultTheme="system">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body>
+        <ClientProviders>
           {children}
-        </ThemeProvider>
+        </ClientProviders>
       </body>
     </html>
   );
