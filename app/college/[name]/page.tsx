@@ -34,7 +34,7 @@ export default function CollegePage({ params }: Props) {
 
   return (
     <main className="min-h-screen p-4 md:p-8 max-w-6xl mx-auto">
-      <Link href="/" className="inline-flex items-center text-blue-600 hover:underline mb-6">
+      <Link href="/" className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline mb-6">
         <FaArrowLeft className="mr-2 h-4 w-4" />
         Back to all colleges
       </Link>
@@ -42,9 +42,9 @@ export default function CollegePage({ params }: Props) {
       <h1 className="text-2xl md:text-3xl font-bold mb-6">{college.collegeName}</h1>
 
       <div className="grid md:grid-cols-2 gap-6 mb-8">
-        <div className="border rounded-lg shadow-sm p-4 bg-white">
-          <h2 className="text-lg font-semibold border-b pb-2">College Information</h2>
-          <table className="w-full mt-4 text-sm text-gray-600">
+        <div className="border rounded-lg shadow-sm p-4 bg-white dark:bg-gray-800 dark:border-gray-700">
+          <h2 className="text-lg font-semibold border-b pb-2 dark:border-gray-700">College Information</h2>
+          <table className="w-full mt-4 text-sm text-gray-600 dark:text-gray-300">
             <tbody>
               {college.address.street && (
                 <tr>
@@ -98,9 +98,9 @@ export default function CollegePage({ params }: Props) {
           </table>
         </div>
 
-        <div className="border rounded-lg shadow-sm p-4 bg-white">
-          <h2 className="text-lg font-semibold border-b pb-2">Courses and Intake</h2>
-          <table className="w-full mt-4 text-sm text-gray-600">
+        <div className="border rounded-lg shadow-sm p-4 bg-white dark:bg-gray-800 dark:border-gray-700">
+          <h2 className="text-lg font-semibold border-b pb-2 dark:border-gray-700">Courses and Intake</h2>
+          <table className="w-full mt-4 text-sm text-gray-600 dark:text-gray-300">
             <thead>
               <tr>
                 <th className="text-left">Course Name</th>
